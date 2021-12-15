@@ -30,6 +30,20 @@ public class Empleado {
         this.Cbancaria = Cbancaria;
     }
 
+    public Empleado(String dni, String nombre, String apellido, String correo, String tlf, String usuario, String contrasena, String Ssocial, String Cbancaria) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.tlf = tlf;
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        this.Ssocial = Ssocial;
+        this.Cbancaria = Cbancaria;
+    }
+    
+    
+
     public Empleado(int idEmp) {
         this.idEmp = idEmp;
     }

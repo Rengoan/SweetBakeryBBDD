@@ -14,7 +14,7 @@ public interface ClientesDAO {
     
     int insertar(Cliente cliente) throws SQLException ;
     
-    int borrarporId(Cliente clientes) throws SQLException ;
+    int borrarporDNI(Cliente clientes) throws SQLException ;
     
-    Cliente buscarUsuario(String usuario, String dni) throws SQLException ;
+    Cliente buscarUsuario(String usuario, String contrasena) throws SQLException ;
 }

@@ -25,6 +25,18 @@ public class Cliente {
         this.contrasena = contrasena;
     }
 
+    public Cliente(String dni, String nombre, String apellido, String correo, String tlf, String usuario, String contrasena) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.tlf = tlf;
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+    }
+
+    
+    
     public Cliente(String dni) {
         this.dni = dni;
     }

@@ -1,6 +1,6 @@
 package sweetbakery.negocio;
 
-import MYSQL.ClientesDAO;
+import MYSQL.*;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import sweetbakery.datos.AccesoDatosImp;
 import sweetbakery.datos.IAccesoDatos;
 import sweetbakery.dominio.*;
 import sweetbakery.excepciones.AccesoDatosEx;
@@ -26,9 +27,10 @@ public class PasteleriaImp implements ICatalagoPasteleria{
     private List<Productos> productos = null;
     private List<Pedido> pedidos = null;
 
-    public PasteleriaImp(IAccesoDatos datos) {
-        this.datos = datos;
+    public PasteleriaImp() {
+        this.datos =new AccesoDatosImp();
     }
+
     
     
     

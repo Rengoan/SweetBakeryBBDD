@@ -27,7 +27,7 @@ public class ClientesDAOJDBC implements ClientesDAO {
             + "contrasena = ?  "
             + "WHERE dni = ?";
 
-    private static final String SQL_BUSCAR = "SELECT * FROM cliente WHERE usuario='?' AND dni='?'";
+//    private static final String SQL_BUSCAR = "SELECT * FROM cliente WHERE usuario='?' AND dni='?'";
 
     private static final String SQL_DELETE = "DELETE FROM cliente  "
             + "WHERE dni = ? ";
@@ -51,13 +51,12 @@ public class ClientesDAOJDBC implements ClientesDAO {
             conn = this.conexion != null ? this.conexion : getConnection();
             stmt = conn.prepareStatement(SQL_UPDATE);
 
-            stmt.setString(1, cliente.getNombre());
-            stmt.setString(2, cliente.getApellido());
-            stmt.setString(3, cliente.getCorreo());
-            stmt.setString(4, cliente.getTlf());
-            stmt.setString(5, cliente.getUsuario());
-            stmt.setString(6, cliente.getContrasena());
-            stmt.setString(7, cliente.getDni());
+            
+            stmt.setString(1, cliente.getCorreo());
+            stmt.setString(2, cliente.getTlf());
+            stmt.setString(3, cliente.getUsuario());
+            stmt.setString(4, cliente.getContrasena());
+            stmt.setString(5, cliente.getDni());
 
             registros = stmt.executeUpdate();
 
@@ -188,7 +187,7 @@ public class ClientesDAOJDBC implements ClientesDAO {
     }
 
     @Override
-    public int borrarporId(Cliente clientes) throws SQLException {
+    public int borrarporDNI(Cliente clientes) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
         int registros = 0; //num registros
@@ -200,7 +199,7 @@ public class ClientesDAOJDBC implements ClientesDAO {
             //2. PREPARED STATEMENT
             stmt = conn.prepareStatement(SQL_DELETE);
 
-            stmt.setInt(1, clientes.getIdCliente());
+            stmt.setString(1, clientes.getDni());
 
             //ejecutamos la consulta
             registros = stmt.executeUpdate();
@@ -216,7 +215,7 @@ public class ClientesDAOJDBC implements ClientesDAO {
     
 
     @Override
-    public Cliente buscarUsuario(String usuario, String dni) throws SQLException {
+    public Cliente buscarUsuario(String usuario, String contrasena) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
 
@@ -225,13 +224,13 @@ public class ClientesDAOJDBC implements ClientesDAO {
             conn = this.conexion != null ? this.conexion : getConnection();
 
             //2. PREPARED STATEMENT
-             stmt = conn.prepareStatement(SQL_BUSCAR);
-//            String consulta = "SELECT * from cliente where usuario = ? and dni = ?";
+//             stmt = conn.prepareStatement(SQL_BUSCAR);
+            String consulta = "SELECT * from cliente where usuario = ? and contrasena = ?";
 
-            
+            stmt = conn.prepareStatement(consulta);
 
             stmt.setString(1, usuario);
-            stmt.setString(2, dni);
+            stmt.setString(2, contrasena);
 
             ResultSet registros = stmt.executeQuery();
 
@@ -240,7 +239,7 @@ public class ClientesDAOJDBC implements ClientesDAO {
                 Cliente clientetmp = new Cliente(registros.getInt("idcliente"),
                          registros.getString("dni"),
                          registros.getString("nombre"),
-                         registros.getString("apellidos"),
+                         registros.getString("apellido"),
                          registros.getString("correo"),
                          registros.getString("telefono"),
                          registros.getString("usuario"),

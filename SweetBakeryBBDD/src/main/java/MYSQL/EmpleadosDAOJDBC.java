@@ -29,7 +29,7 @@ public class EmpleadosDAOJDBC implements EmpleadosDAO {
     private static final String SQL_DELETE = "DELETE FROM empleado  "
             + "WHERE telefono=?";
 
-    private static final String SQL_BUSCAR = "SELECT * FROM empleado WHERE dni='?' ";
+    private static final String SQL_BUSCAR = "SELECT * FROM empleado WHERE usuario='?' ";
 
     private Connection conexion;
 
@@ -226,8 +226,10 @@ public class EmpleadosDAOJDBC implements EmpleadosDAO {
             conn = this.conexion != null ? this.conexion : getConnection();
 
             //2. PREPARED STATEMENT
-            stmt = conn.prepareStatement(SQL_BUSCAR);
-//            String consulta = "SELECT * from cliente where usuario = ? and dni = ?";
+//            stmt = conn.prepareStatement(SQL_BUSCAR);
+            String consulta = "SELECT * from empleado where usuario = ?";
+            
+            stmt = conn.prepareStatement(consulta);
 
             stmt.setString(1, usuario);
 
