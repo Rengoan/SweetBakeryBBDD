@@ -26,5 +26,5 @@ public interface ICatalagoPasteleria {
 
     Productos buscarPastel(String nombreRecurso, int idProducto);
 
-    Productos comprarPastel(String nombreRecurso, int idProducto);
+    Productos comprarPastel(String nombreRecurso, String nombreProducto);
 }

@@ -123,7 +123,7 @@ public class Cliente {
 //    }
     @Override
     public String toString() {
-        return "Cliente\n=============" +"\nDNI: "
+        return "Cliente\n=============" +"\nIdentificador del cliente: "+idCliente+"\nDNI: "
                 + dni + "\nNombre:" + nombre + "\nApellido: " + apellido
                 + "\nCorreo: " + correo + "\nTelefono: " + tlf + "\nUsuario: "
                 + usuario + "\nContraseña: " + contrasena + "\n";

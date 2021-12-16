@@ -66,8 +66,7 @@ public class AccesoDatosImp implements IAccesoDatos {
                 String descripcion = producto[2];
                 TipoProducto tamanio = TipoProducto.valueOf(producto[3]);
                 double precio = Double.parseDouble(producto[4]);
-                
-                Date fechaC = formatoFecha.parse(producto[4]);
+                Date fechaC = formatoFecha.parse(producto[5]);
                 
                 productoN = new Productos(idProducto, nombreProducto, 
                         descripcion, tamanio, precio, fechaC); 

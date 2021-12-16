@@ -15,7 +15,7 @@ import sweetbakery.dominio.Cliente;
 public class ClientesDAOJDBC implements ClientesDAO {
 
     private static final String SQL_SELECT = "SELECT * FROM cliente";
-    private static final String SQL_ORDENAR = "SELECT * FROM cliente ORDER BY idcliente";
+    private static final String SQL_ORDENAR = "SELECT * FROM cliente ORDER BY idcliente ASC";
     private static final String SQL_INSERT = "INSERT INTO cliente"
             + "(dni,nombre,apellido,correo,telefono,usuario,contrasena) VALUES "
             + "(?, ?, ?, ?, ?, ?, ?)";
@@ -76,7 +76,6 @@ public class ClientesDAOJDBC implements ClientesDAO {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        //String [] arr = new String[3];
         List<Cliente> cliente = new ArrayList<>();
 
         try {
@@ -86,7 +85,7 @@ public class ClientesDAOJDBC implements ClientesDAO {
 
             while (rs.next()) {
 
-                int id = rs.getInt("idcliente");
+                int idCliente = rs.getInt("idcliente");
                 String dni = rs.getString("dni");
                 String nombre = rs.getString("nombre");
                 String apellidos = rs.getString("apellido");
@@ -95,7 +94,7 @@ public class ClientesDAOJDBC implements ClientesDAO {
                 String usuario = rs.getString("usuario");
                 String contrasena = rs.getString("contrasena");
 
-                cliente.add(new Cliente(id, dni, nombre, apellidos, correo, telefono, usuario, contrasena));
+                cliente.add(new Cliente(idCliente, dni, nombre, apellidos, correo, telefono, usuario, contrasena));
             }
         } catch (SQLException e) {
             e.printStackTrace(System.out);
@@ -125,7 +124,7 @@ public class ClientesDAOJDBC implements ClientesDAO {
 
             while (rs.next()) {
 
-                int id = rs.getInt("idcliente");
+                int idCliente = rs.getInt("idcliente");
                 String dni = rs.getString("dni");
                 String nombre = rs.getString("nombre");
                 String apellidos = rs.getString("apellido");
@@ -134,7 +133,7 @@ public class ClientesDAOJDBC implements ClientesDAO {
                 String usuario = rs.getString("usuario");
                 String contrasena = rs.getString("contrasena");
 
-                cliente.add(new Cliente(id, dni, nombre, apellidos, correo, telefono, usuario, contrasena));
+                cliente.add(new Cliente(idCliente, dni, nombre, apellidos, correo, telefono, usuario, contrasena));
             }
         } catch (SQLException e) {
             e.printStackTrace(System.out);

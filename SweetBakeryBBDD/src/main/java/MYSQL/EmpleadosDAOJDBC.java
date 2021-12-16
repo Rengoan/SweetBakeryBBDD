@@ -27,7 +27,7 @@ public class EmpleadosDAOJDBC implements EmpleadosDAO {
             + "WHERE dni=?";
 
     private static final String SQL_DELETE = "DELETE FROM empleado  "
-            + "WHERE telefono=?";
+            + "WHERE idEmpleado=?";
 
     private static final String SQL_BUSCAR = "SELECT * FROM empleado WHERE usuario='?' ";
 
@@ -85,7 +85,7 @@ public class EmpleadosDAOJDBC implements EmpleadosDAO {
 
             while (rs.next()) {
 
-                int id = rs.getInt("idEmpleado");
+                int idEmp = rs.getInt("idEmpleado");
                 String dni = rs.getString("dni");
                 String nombre = rs.getString("nombre");
                 String apellido = rs.getString("apellido");
@@ -96,7 +96,7 @@ public class EmpleadosDAOJDBC implements EmpleadosDAO {
                 String ssocial = rs.getString("ssocial");
                 String cbancaria = rs.getString("cbancaria");
 
-                empleado.add(new Empleado(id, dni, nombre, apellido, correo, telefono, usuario, contrasena, ssocial, cbancaria));
+                empleado.add(new Empleado(idEmp, dni, nombre, apellido, correo, telefono, usuario, contrasena, ssocial, cbancaria));
             }
         } finally { //ejecuta siempre
             close(rs);
@@ -191,7 +191,7 @@ public class EmpleadosDAOJDBC implements EmpleadosDAO {
 
             while (rs.next()) {
 
-                int id = rs.getInt("idEmpleado");
+                int idEmp = rs.getInt("idEmpleado");
                 String dni = rs.getString("dni");
                 String nombre = rs.getString("nombre");
                 String apellido = rs.getString("apellido");
@@ -202,7 +202,7 @@ public class EmpleadosDAOJDBC implements EmpleadosDAO {
                 String ssocial = rs.getString("ssocial");
                 String cbancaria = rs.getString("cbancaria");
 
-                empleado.add(new Empleado(id, dni, nombre, apellido, correo, telefono, usuario, contrasena, ssocial, cbancaria));
+                empleado.add(new Empleado(idEmp, dni, nombre, apellido, correo, telefono, usuario, contrasena, ssocial, cbancaria));
             }
         } finally { //ejecuta siempre
             close(rs);

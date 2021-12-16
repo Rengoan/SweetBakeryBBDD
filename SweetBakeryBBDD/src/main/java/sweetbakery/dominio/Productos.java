@@ -108,7 +108,7 @@ public class Productos {
 
     @Override
     public String toString() {
-        return "Productos\n===================" + "fechaCIdentificador de Producto: " + idProducto 
+        return "Productos\n===================" + "\nIdentificador de Producto: " + idProducto 
                 + "\nNombre de producto: " + nombreProducto 
                 + "\nDescripcion: " + descripcion + "\nTamaño: " + tipoProducto 
                 + "\nPrecio" + precio + "Fecha de compra: " + this.getfecha_caducidad_toString() + "\n";

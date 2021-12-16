@@ -98,7 +98,7 @@ public class PasteleriaImp implements ICatalagoPasteleria{
         double total = 0.0;
 
         for (Pedido pedidos : arrayPasteles) {
-            double precioPedido = pedidos.getCantidad() * pedidos.getIdProductos().getPrecio();
+            double precioPedido = pedidos.getCantidad() * pedidos.getNombreProducto().getPrecio();
             total += precioPedido;
         }
         return total;
@@ -123,8 +123,8 @@ public class PasteleriaImp implements ICatalagoPasteleria{
 
         for (Pedido pedidos : arrayPasteles) {
 
-            if (pedidos.getIdProductos().getPrecio() < minPrecio) {
-                minPrecio = pedidos.getIdProductos().getPrecio();
+            if (pedidos.getNombreProducto().getPrecio() < minPrecio) {
+                minPrecio = pedidos.getNombreProducto().getPrecio();
             }
         }
 
@@ -133,12 +133,17 @@ public class PasteleriaImp implements ICatalagoPasteleria{
 
     @Override
     public String listarRecurso(String nombreRecurso) {
-        List<Productos> producto = new ArrayList<>();
+        List<Productos> productos = new ArrayList<>();
         try {
-            producto = datos.ListarP(nombreRecurso);
-            producto.forEach(productos -> {
-                productos.toString();
-//                System.out.println(prenda.getReferencia() + " ; " + prenda.getNombre() + " ; " + prenda.getPrecio() + " ;" + prenda.getDescripcion() + " ;" + prenda.getfecha_temporada_toString() + " ;" + prenda.getTalla());
+            productos = this.datos.ListarP(nombreRecurso);
+            productos.forEach(producto -> {
+//                producto.toString();
+                System.out.println(producto.getIdProducto() 
+                        + " ; " + producto.getNombreProducto()
+                        + " ; " + producto.getDescripcion()
+                        + " ;" + producto.getTipoProducto()
+                        + " ;" + producto.getPrecio()
+                        + " ;" + producto.getFechaC());
             });
 
         } catch (LecturaDatosEx e) {
@@ -225,7 +230,7 @@ public class PasteleriaImp implements ICatalagoPasteleria{
     }
 
     @Override
-    public Productos comprarPastel(String nombreRecurso, int idProducto) {
+    public Productos comprarPastel(String nombreRecurso, String nombreProducto) {
         File archivo = new File(nombreRecurso);
         List<Productos> productos = null;
         Productos pastelEncontrado = null;
@@ -239,7 +244,7 @@ public class PasteleriaImp implements ICatalagoPasteleria{
             int arrayPproductos = 0;
             while (arrayPproductos < productos.size() && pastelEncontrado == null) {
 
-                if (productos.get(arrayPproductos).getIdProducto() == idProducto) {
+                if (productos.get(arrayPproductos).getNombreProducto().equalsIgnoreCase(nombreProducto)) {
                     pastelEncontrado = productos.get(arrayPproductos);
                 }
                 arrayPproductos++;
@@ -247,10 +252,11 @@ public class PasteleriaImp implements ICatalagoPasteleria{
 
         } catch (LecturaDatosEx ex) {
             ex.printStackTrace();
-            System.out.println("Error al buscar la referencia");
+            System.out.println("Error al buscar el nombre del producto");
 
         }
         return pastelEncontrado;
     }
+
     
 }

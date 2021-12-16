@@ -9,9 +9,9 @@ public class Pedido {
     private int cantidad;
     private Cliente idClientes;
     private Cliente dniCliente;
-    private Productos idProductos;
-    private int numeroPedido;
-    private Empleado idEmpleados;
+    private Productos nombreProducto;
+//    private int numeroPedido;
+//    private Empleado idEmpleados;
     
     //Contructores
 
@@ -19,16 +19,15 @@ public class Pedido {
     }
 
     public Pedido(Date fechaP, int cantidad, Cliente idClientes,
-            Cliente dniCliente, Productos idProductos,
-            int numeroPedido, Empleado idEmpleados) {
+            Cliente dniCliente, Productos nombreProducto) {
         
         this.fechaP = fechaP;
         this.cantidad = cantidad;
         this.idClientes = idClientes;
         this.dniCliente = dniCliente;
-        this.idProductos = idProductos;
-        this.numeroPedido = numeroPedido;
-        this.idEmpleados = idEmpleados;
+        this.nombreProducto = nombreProducto;
+        
+        
     }
     
     //Getter and Setters
@@ -70,29 +69,29 @@ public class Pedido {
         this.dniCliente = dniCliente;
     }
 
-    public Productos getIdProductos() {
-        return idProductos;
+    public Productos getNombreProducto() {
+        return nombreProducto;
     }
 
-    public void setIdProductos(Productos idProductos) {
-        this.idProductos = idProductos;
+    public void setNombreProducto(Productos nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
 
-    public int getNumeroPedido() {
-        return numeroPedido;
-    }
+//    public int getNumeroPedido() {
+//        return numeroPedido;
+//    }
+//
+//    public void setNumeroPedido(int numeroPedido) {
+//        this.numeroPedido = numeroPedido;
+//    }
 
-    public void setNumeroPedido(int numeroPedido) {
-        this.numeroPedido = numeroPedido;
-    }
-
-    public Empleado getIdEmpleados() {
-        return idEmpleados;
-    }
-
-    public void setIdEmpleados(Empleado idEmpleados) {
-        this.idEmpleados = idEmpleados;
-    }
+//    public Empleado getIdEmpleados() {
+//        return idEmpleados;
+//    }
+//
+//    public void setIdEmpleados(Empleado idEmpleados) {
+//        this.idEmpleados = idEmpleados;
+//    }
     
    //toString
 
@@ -102,9 +101,7 @@ public class Pedido {
                 + "\nCantidad: " + cantidad 
                 + "\nIdentificador Cliente: " + idClientes.getIdCliente() 
                 + "\nDNI" + dniCliente.getDni()
-                + "\nIdentificador del Producto: " + idProductos.getIdProducto() 
-                + "\nNumero de pedido: " + numeroPedido
-                + "\nIdentificador del empleado: " + idEmpleados.getIdEmp() + "\n";
+                + "\nIdentificador del Producto: " + nombreProducto.getNombreProducto() + "\n";
     }
     
     
