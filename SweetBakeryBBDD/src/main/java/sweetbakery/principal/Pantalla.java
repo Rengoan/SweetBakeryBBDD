@@ -185,11 +185,12 @@ public class Pantalla {
     }
 
     public static void menuEmpleado(Empleado empleadotmp) throws SQLException, ParseException {
-        int opcion = -1;
+        int opcion;
+        boolean opcionW = true;
         Scanner lectura = new Scanner(System.in);
         Scanner datos = new Scanner(System.in);
         Scanner nProducto = new Scanner(System.in);
-        while (opcion != 0) {
+        while (opcionW) {
             System.out.println("\nEMPLEADO: ");
 
             System.out.println("1.- Listar los empleados de la tienda");
@@ -262,6 +263,7 @@ public class Pantalla {
                         Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     break;
+
                 case 5:
                     //ORDENAR LISTADO CLIENTES ASCENDENTE
                     System.out.println("\nClientes ordenado por ID ascendentemente");
@@ -306,16 +308,28 @@ public class Pantalla {
                     catalogo.agregarPastelCatalogo(new Productos(id, nombreProducto, descripcion, tipo, precio, fecha), producto);
                     System.out.println("\n");
                     break;
-                case 8:
-                    //LISTAR ARTICULOS DEL CATALOGO
-                    System.out.println("\nProductos del catalogo");
-                    System.out.println("===============================");
-
-                    catalogo.listarRecurso(producto);
-                    System.out.println("\n ");
+//                case 8:
+//                    //LISTAR ARTICULOS DEL CATALOGO
+//                    System.out.println("\nProductos del catalogo");
+//                    System.out.println("===============================");
+//
+//                    catalogo.listarRecurso(producto);
+//                    System.out.println("\n ");
+//                    break;
+//                case 9:
+//                    //INICIAR CATALOGO DE PRODUCTOS
+//                    catalogo.iniciar(producto);
+//                    break;
+//                case 10:
+//                    //INICIAR CATALOGO DE PRODUCTOS
+//                    catalogo.iniciar(producto);
+//                    break;
+                case 11:
+                    //INICIAR CATALOGO DE PRODUCTOS
+                    catalogo.iniciar(ventas);
                     break;
                 case 0:
-                    menuPrincipal();
+                    opcionW = false;
                     break;
                 default:
                     System.out.println("Debe seleccionar una opción entre 0 y 2");
@@ -325,11 +339,12 @@ public class Pantalla {
 
     public static void menuCliente(Cliente clientetmp) throws SQLException, ParseException {
         int opcion;
+        boolean opcionW = true;
 //        String contrasena = "";
 //        String usuario = "";
         Scanner datos = new Scanner(System.in);
         Scanner lectura = new Scanner(System.in);
-        while (true) {
+        while (opcionW) {
             System.out.println("\nCLIENTE");
             System.out.println("==============\n");
             System.out.println("Elige una de las opciones: ");
@@ -379,7 +394,7 @@ public class Pantalla {
 
                 case 0:
                     System.out.println("Volviendo al menu principal");
-                    menuPrincipal();
+                    opcionW = false;
                     break;
                 default:
                     System.out.println("Debe seleccionar una opción entre 0 y 3");
@@ -390,13 +405,14 @@ public class Pantalla {
     public static void menuPedido(Cliente clientetmp) throws SQLException, ParseException {
         int cantidadTotal = 0;
         int opcion;
+        boolean opcionW = true;
 
         Scanner datos = new Scanner(System.in);
         Scanner menu = new Scanner(System.in);
 
         Productos productoEncontrado = null;
 
-        while (true) {
+        while (opcionW) {
             System.out.println("\nPEDIDO");
             System.out.println("==============\n");
             System.out.println("Elige una de las opciones: ");
@@ -417,7 +433,7 @@ public class Pantalla {
                 case 2:
                     System.out.println("\nCATALOGO PRODUCTOS");
                     System.out.println("=======================\n");
-                    System.out.println("Escriba la palabra 'Finalizar' para terminar la compra\n");
+                    System.out.println("Escriba la palabra 'Terminar' para terminar la compra\n");
 
                     catalogo.listarRecurso(producto);//Crear menu empleados para que se cree el archivo
                     boolean repetircompra = true;
@@ -434,7 +450,7 @@ public class Pantalla {
                         System.out.println("\nEscriba el nombre del producto que desea agregar al pedido: ");
                         producto = datos.nextLine();
 
-                        if (producto.equalsIgnoreCase("Finalizar")) {
+                        if (producto.equalsIgnoreCase("Terminar")) {
                             repetircompra = false;
                             System.out.println("\nREF\tARTICULO\tPRECIO\tDESCRIPCION\tTEMPORADA\tTALLA");
                             System.out.println("---\t--------\t------\t-----------\t---------\t-----");
@@ -482,6 +498,7 @@ public class Pantalla {
 
                 case 0:
                     menuCliente(clientetmp);
+                    opcionW = false;
                     break;
 
                 default:
