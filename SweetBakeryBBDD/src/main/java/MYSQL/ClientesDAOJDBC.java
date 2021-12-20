@@ -27,7 +27,7 @@ public class ClientesDAOJDBC implements ClientesDAO {
             + "contrasena = ?  "
             + "WHERE dni = ?";
 
-//    private static final String SQL_BUSCAR = "SELECT * FROM cliente WHERE usuario='?' AND dni='?'";
+    private static final String SQL_BUSCAR = "SELECT * FROM cliente WHERE usuario='?' AND dni='?'";
 
     private static final String SQL_DELETE = "DELETE FROM cliente  "
             + "WHERE dni = ? ";
@@ -166,10 +166,7 @@ public class ClientesDAOJDBC implements ClientesDAO {
             stmt.setString(6, cliente.getUsuario());
             stmt.setString(7, cliente.getContrasena());
 
-//            String tempSQL = stmt.toString();
-//            int i1 = tempSQL.indexOf(":") + 2;
-//            tempSQL = tempSQL.substring(i1);
-//            System.out.println(tempSQL);
+
             registros = stmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -184,6 +181,9 @@ public class ClientesDAOJDBC implements ClientesDAO {
 
         return registros;
     }
+    
+    
+   
 
     @Override
     public int borrarporDNI(Cliente clientes) throws SQLException {

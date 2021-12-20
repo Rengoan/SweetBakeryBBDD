@@ -46,13 +46,10 @@ public class Pantalla {
 
     public static void menuPrincipal() throws ParseException, SQLException {
         int opcion = -1;
-        boolean repetir = true;
-//        int opciones = -1;
 
         Scanner lectura = new Scanner(System.in);
         Scanner dato = new Scanner(System.in);
 
-//        while (opcion!=0) 
         while (opcion != 0) {
             System.out.println("\nBIENVENIDO A SWEETBAKERY: ");
             System.out.println("==================================");
@@ -185,12 +182,11 @@ public class Pantalla {
     }
 
     public static void menuEmpleado(Empleado empleadotmp) throws SQLException, ParseException {
-        int opcion;
-        boolean opcionW = true;
+        int opcion=-1;
         Scanner lectura = new Scanner(System.in);
         Scanner datos = new Scanner(System.in);
         Scanner nProducto = new Scanner(System.in);
-        while (opcionW) {
+        while (opcion!=0) {
             System.out.println("\nEMPLEADO: ");
 
             System.out.println("1.- Listar los empleados de la tienda");
@@ -329,7 +325,7 @@ public class Pantalla {
                     catalogo.iniciar(ventas);
                     break;
                 case 0:
-                    opcionW = false;
+                    menuPrincipal();
                     break;
                 default:
                     System.out.println("Debe seleccionar una opción entre 0 y 2");
@@ -338,13 +334,10 @@ public class Pantalla {
     }
 
     public static void menuCliente(Cliente clientetmp) throws SQLException, ParseException {
-        int opcion;
-        boolean opcionW = true;
-//        String contrasena = "";
-//        String usuario = "";
+        int opcion=-1;
         Scanner datos = new Scanner(System.in);
         Scanner lectura = new Scanner(System.in);
-        while (opcionW) {
+        while (opcion!=0) {
             System.out.println("\nCLIENTE");
             System.out.println("==============\n");
             System.out.println("Elige una de las opciones: ");
@@ -358,7 +351,7 @@ public class Pantalla {
             opcion = lectura.nextInt();
             switch (opcion) {
                 case 1:
-                    System.out.println("Para darse de baja en la aplicación, introduzca su DNI...");
+                    System.out.println("Para dar de baja al usuario, introduzca su DNI...");
 
                     System.out.println("DNI: ");
                     String borrar = datos.nextLine();
@@ -393,8 +386,7 @@ public class Pantalla {
                     break;
 
                 case 0:
-                    System.out.println("Volviendo al menu principal");
-                    opcionW = false;
+                    menuPrincipal();
                     break;
                 default:
                     System.out.println("Debe seleccionar una opción entre 0 y 3");
