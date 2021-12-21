@@ -1,8 +1,8 @@
 Productos
 ===================
-Identificador de Producto: 32
+Identificador de Producto: 22
 Nombre de producto: Tarta
 Descripcion: Tarta de queso
-Tamaño: GRANDE
-Precio33.0Fecha de compra: 31/05/1994
+Tamaño: PEQUENIA
+Precio22.0Fecha de compra: 31/05/1994
 

@@ -304,14 +304,14 @@ public class Pantalla {
                     catalogo.agregarPastelCatalogo(new Productos(id, nombreProducto, descripcion, tipo, precio, fecha), producto);
                     System.out.println("\n");
                     break;
-//                case 8:
-//                    //LISTAR ARTICULOS DEL CATALOGO
-//                    System.out.println("\nProductos del catalogo");
-//                    System.out.println("===============================");
-//
-//                    catalogo.listarRecurso(producto);
-//                    System.out.println("\n ");
-//                    break;
+                case 8:
+                    //LISTAR ARTICULOS DEL CATALOGO
+                    System.out.println("\nProductos del catalogo");
+                    System.out.println("===============================");
+
+                    catalogo.listarRecurso(producto);
+                    System.out.println("\n ");
+                    break;
 //                case 9:
 //                    //INICIAR CATALOGO DE PRODUCTOS
 //                    catalogo.iniciar(producto);
@@ -321,14 +321,14 @@ public class Pantalla {
 //                    catalogo.iniciar(producto);
 //                    break;
                 case 11:
-                    //INICIAR CATALOGO DE PRODUCTOS
+                    //INICIAR CATALOGO DE VENTAS
                     catalogo.iniciar(ventas);
                     break;
                 case 0:
 //                    menuPrincipal();
                     break;
                 default:
-                    System.out.println("Debe seleccionar una opción entre 0 y 2");
+                    System.out.println("Debe seleccionar una opción entre 0 y 11");
             }
         }
     }
