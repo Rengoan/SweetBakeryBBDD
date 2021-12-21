@@ -111,7 +111,7 @@ public class Productos {
         return "Productos\n===================" + "\nIdentificador de Producto: " + idProducto 
                 + "\nNombre de producto: " + nombreProducto 
                 + "\nDescripcion: " + descripcion + "\nTamaño: " + tipoProducto 
-                + "\nPrecio" + precio + "Fecha de compra: " + this.getfecha_caducidad_toString() + "\n";
+                + "\nPrecio" + precio + "\nFecha de compra: " + this.getfecha_caducidad_toString() + "\n";
     }
     
     
