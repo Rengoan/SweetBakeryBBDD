@@ -194,11 +194,11 @@ public class Pantalla {
             System.out.println("3.- Ordenar empleados descendentemente por apellido");
             System.out.println("4.- Listar los clientes de la tienda");
             System.out.println("5.- Ordenar clientes ascendendentemente por ID");
-            System.out.println("6.- Iniciar catalogo de articulos");
-            System.out.println("7.- Añadir articulos al catalogo");
-            System.out.println("8.- Listar los articulos del catalogo");
-            System.out.println("9.- Buscar articulo del catalogo");
-            System.out.println("10.- Ordenar catalogo ascendentemente por referencia");
+            System.out.println("6.- Iniciar catalogo de productos");
+            System.out.println("7.- Añadir productos al catalogo");
+            System.out.println("8.- Listar los productos del catalogo");
+            System.out.println("9.- Buscar producto del catalogo");
+            System.out.println("10.- Ordenar catalogo ascendentemente por id");
             System.out.println("11.- Iniciar el fichero ventas");
             System.out.println("0.- Volver al menu principal");
             System.out.println("Seleccione una de las opciones");
@@ -325,7 +325,7 @@ public class Pantalla {
                     catalogo.iniciar(ventas);
                     break;
                 case 0:
-                    menuPrincipal();
+//                    menuPrincipal();
                     break;
                 default:
                     System.out.println("Debe seleccionar una opción entre 0 y 2");
